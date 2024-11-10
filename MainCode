@@ -1,0 +1,28 @@
+import scala.util.Random
+
+object UniqueNumbersApp {
+  def main(args: Array[String]): Unit = {
+    // Генерируем список случайных чисел
+    val randomNumbers: List[Int] = generateRandomNumbers(20, 1, 10)
+    
+    // Выводим сгенерированные числа
+    println(s"Сгенерированные числа: $randomNumbers")
+    
+    // Получаем уникальные числа
+    val uniqueNumbers: List[Int] = getUniqueNumbers(randomNumbers)
+    
+    // Выводим уникальные числа
+    println(s"Уникальные числа: $uniqueNumbers")
+  }
+
+  // Метод для генерации списка случайных чисел
+  def generateRandomNumbers(size: Int, min: Int, max: Int): List[Int] = {
+    val random = new Random()
+    List.fill(size)(random.nextInt(max - min + 1) + min)
+  }
+
+  // Метод для получения уникальных чисел
+  def getUniqueNumbers(numbers: List[Int]): List[Int] = {
+    numbers.distinct
+  }
+}
